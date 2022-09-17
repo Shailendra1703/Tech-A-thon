@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const blogRoutes = require("./Routes/blogRoutes");
 const app = express();
+
 //mongoose in an ODM object documenting mapping libraray
 const Mongodb =
   "mongodb+srv://Shailendra:allsmall786@practice.xds41.mongodb.net/?retryWrites=true&w=majority";
@@ -19,6 +20,9 @@ app.use(express.urlencoded({ extended: true })); //middleware
 
 app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
+});
+app.get("/home", (req, res) => {
+  res.render("home", { title: "Home" });
 });
 
 //blog routes
