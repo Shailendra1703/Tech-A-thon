@@ -5,19 +5,25 @@
   <body>
     <%- include('./partials/nav.ejs') %>
     <div class="details content">
+      <!-- <img src="<%= blog.image %> " alt="image" /> -->
       <h2><%= blog.title %></h2>
       <div class="content">
         <!-- <p><%=blog.snippet %></p> -->
         <p><%=blog.body%></p>
       </div>
-      <a href="" class="delete" data-doc="<%= blog._id %>"
-        ><img src="/trash.svg" alt=""
-      /></a>
+      <div class="icons">
+        <a href="" class="delete" data-doc="<%= blog._id %>"
+          ><img src="/trash.svg" alt=""
+        /></a>
+        <a href="" class="share" data-doc="<%= blog._id %>"
+          ><img src="/share.png" alt=""
+        /></a>
+      </div>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>
   <script>
-    const trash = document.querySelector("a.delete");
+    const trash = document.querySelector(".delete");
 
     trash.addEventListener("click", (e) => {
       const endpoint = `/blogs/${trash.dataset.doc}`;
@@ -29,6 +35,16 @@
         .then((response) => response.json())
         .then((data) => (window.location.href = data.redirect)) //(window.location.href = data.redirect)
         .catch((err) => console.log(err));
+    });
+
+    const share = document.querySelector(".share");
+
+    share.addEventListener("click", (e) => {
+      // const linkPoint = `blogs/${share.dataset.doc}`;
+
+      const link = window.location.href;
+      console.log(link);
+      alert(link);
     });
   </script>
 </html>

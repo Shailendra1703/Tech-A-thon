@@ -34,6 +34,14 @@ const blog_delete = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+const blog_like = (req, res) => {
+  const id = req.params.id;
+  Blog.findByIdAndUpdate(id, { like: like + 1 }, function (err, docs) {
+    if (err) console.log(err);
+    else console.log("updates :", docs);
+  });
+};
+
 const blog_details = (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
@@ -52,4 +60,5 @@ module.exports = {
   blog_post,
   blog_delete,
   blog_details,
+  blog_like,
 };

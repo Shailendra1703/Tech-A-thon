@@ -15,8 +15,14 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    like: {
+      type: Number,
+      default: 0,
+      required: false,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
+  { typeKey: "$type" }
 );
 
 const Blog = mongoose.model("Blog", blogSchema);

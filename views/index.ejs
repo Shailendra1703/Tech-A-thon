@@ -8,15 +8,25 @@
     <div class="blogs content">
       <h2 class="header">All Blogs</h2>
       <% if(blogs.length>0){ %> <% blogs.forEach(blog => { %>
+      <!-- <img src="<%= blog.image %> " alt="image" /> -->
       <a href="/blogs/<%=blog._id%>" class="single">
         <h2 class="title"><%= blog.title%></h2>
         <p class="snippet"><%= blog.snippet%></p></a
       >
-
+      <!-- <button class="like"><%= blog.like%></button> -->
+      <button class="like">0</button>
       <% }); %> <% } else { %>
       <p class="snippets">There are No blogs to display</p>
       <% } %>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>
+  <script>
+    const like_button = document.querySelector(".like");
+    like_button.addEventListener("click", (e) => {
+      let val = parseInt(like_button.innerHTML);
+      like_button.innerHTML = val + 1;
+      console.log(val);
+    });
+  </script>
 </html>
