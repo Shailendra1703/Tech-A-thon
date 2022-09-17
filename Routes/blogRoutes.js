@@ -19,6 +19,6 @@ router.get("/blogs/:id", blogController.blog_details);
 
 router.delete("/blogs/:id", blogController.blog_delete);
 
-router.put("/blogs/blog_like", blogController.blog_like);
+router.put("/blogs/:id", blogController.blog_like);
 
 module.exports = router;

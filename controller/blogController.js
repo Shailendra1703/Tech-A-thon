@@ -36,7 +36,8 @@ const blog_delete = (req, res) => {
 
 const blog_like = (req, res) => {
   const id = req.params.id;
-  Blog.findByIdAndUpdate(id, { like: like + 1 }, function (err, docs) {
+  let like = req.params.like;
+  Blog.findByIdAndUpdate(id, { like: `${like + 1}` }, function (err, docs) {
     if (err) console.log(err);
     else console.log("updates :", docs);
   });

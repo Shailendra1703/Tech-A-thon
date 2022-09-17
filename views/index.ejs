@@ -8,13 +8,13 @@
     <div class="blogs content">
       <h2 class="header">All Blogs</h2>
       <% if(blogs.length>0){ %> <% blogs.forEach(blog => { %>
-      <!-- <img src="<%= blog.image %> " alt="image" /> -->
+      <img src="<%= blog.image %> " alt="image" />
       <a href="/blogs/<%=blog._id%>" class="single">
         <h2 class="title"><%= blog.title%></h2>
         <p class="snippet"><%= blog.snippet%></p></a
       >
-      <!-- <button class="like"><%= blog.like%></button> -->
-      <button class="like">0</button>
+      <button class="like" data-doc="<%= blog._id %>"><%= blog.like%></button>
+      <!-- <button class="like">0</button> -->
       <% }); %> <% } else { %>
       <p class="snippets">There are No blogs to display</p>
       <% } %>
@@ -24,9 +24,29 @@
   <script>
     const like_button = document.querySelector(".like");
     like_button.addEventListener("click", (e) => {
-      let val = parseInt(like_button.innerHTML);
-      like_button.innerHTML = val + 1;
-      console.log(val);
+      const endpoint = `/blogs/${like_button.dataset.doc}`;
+      console.log(endpoint);
+      fetch(endpoint, {
+        method: "PUT",
+      }).then((response) => {
+        response.json();
+        console.log(JSON.stringify(response));
+      });
     });
   </script>
 </html>
+
+<!-- 
+const trash = document.querySelector(".delete");
+
+    trash.addEventListener("click", (e) => {
+      const endpoint = `/blogs/${trash.dataset.doc}`;
+
+      //for delete
+      fetch(endpoint, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect)) //(window.location.href = data.redirect)
+        .catch((err) => console.log(err));
+    }); -->

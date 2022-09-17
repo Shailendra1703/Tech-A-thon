@@ -5,7 +5,7 @@
   <body>
     <%- include('./partials/nav.ejs') %>
     <div class="details content">
-      <!-- <img src="<%= blog.image %> " alt="image" /> -->
+      <img src="<%= blog.image %> " alt="image" />
       <h2><%= blog.title %></h2>
       <div class="content">
         <!-- <p><%=blog.snippet %></p> -->
@@ -26,6 +26,7 @@
     const trash = document.querySelector(".delete");
 
     trash.addEventListener("click", (e) => {
+      console.log(trash.dataset.doc);
       const endpoint = `/blogs/${trash.dataset.doc}`;
 
       //for delete
