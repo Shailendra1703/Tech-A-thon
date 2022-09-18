@@ -5,11 +5,11 @@
   <body>
     <%- include('./partials/nav.ejs') %>
     <div class="details content">
-      <img src="<%= blog.image %> " alt="image" />
+      <img class="details_image" src="<%= blog.image %> " alt="image" />
       <h2><%= blog.title %></h2>
       <div class="content">
         <!-- <p><%=blog.snippet %></p> -->
-        <p><%=blog.body%></p>
+        <p class="snippet"><%=blog.body%></p>
       </div>
       <div class="icons">
         <a href="" class="delete" data-doc="<%= blog._id %>"
@@ -26,23 +26,22 @@
     const trash = document.querySelector(".delete");
 
     trash.addEventListener("click", (e) => {
-      console.log(trash.dataset.doc);
-      const endpoint = `/blogs/${trash.dataset.doc}`;
+      if (confirm("Are you sure want to Delete it ?")) {
+        const endpoint = `/blogs/${trash.dataset.doc}`;
 
-      //for delete
-      fetch(endpoint, {
-        method: "DELETE",
-      })
-        .then((response) => response.json())
-        .then((data) => (window.location.href = data.redirect)) //(window.location.href = data.redirect)
-        .catch((err) => console.log(err));
+        //for delete
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect)) //(window.location.href = data.redirect)
+          .catch((err) => console.log(err));
+      }
     });
 
     const share = document.querySelector(".share");
 
     share.addEventListener("click", (e) => {
-      // const linkPoint = `blogs/${share.dataset.doc}`;
-
       const link = window.location.href;
       console.log(link);
       alert(link);

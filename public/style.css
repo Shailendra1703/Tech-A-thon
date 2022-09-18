@@ -105,29 +105,6 @@ h3 {
   border-left: 5px solid rgb(13, 223, 205);
 }
 
-.icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  padding-right: 20px;
-}
-/* }
-.delete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  /* padding: 8px; */
-/* border-radius: 5px;
-  transition: 0.3s ease-in-out; */
-
-/* 
-.delete:hover {
-  cursor: pointer;
-  transform: translate(2px, -2px);
-} */
-/* box-shadow: 2px 2px 2px 4px rgb(16, 255, 63); */
-
-/* create styles */
 .create-blog form {
   max-width: 400px;
   margin: 0 auto;
@@ -250,44 +227,7 @@ textarea {
   justify-content: center;
   color: white;
 }
-.form {
-  z-index: 99;
-  width: 350px;
-  height: 400px;
-  padding: 30px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: var(--main-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  position: relative;
-}
 
-.form:after {
-  content: "";
-  position: absolute;
-  background: black;
-  border-radius: 5px;
-  inset: 3px;
-}
-.form:before {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 800px;
-  z-index: -1;
-  background: linear-gradient(90deg, #0e3700, #d2ff3f);
-  animation: rotate 6s linear infinite;
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 h1 {
   z-index: 2;
 }
@@ -299,14 +239,6 @@ input {
   color: white;
   padding-left: 10px;
   margin-bottom: 10px;
-}
-input:focus {
-  border: white;
-  background: transparent;
-}
-
-input::placeholder {
-  color: lightgray;
 }
 
 .loginButton {
@@ -332,3 +264,54 @@ span {
 b {
   color: white;
 }
+
+.blogs_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+.blogs_content img {
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 5px;
+}
+
+.title {
+  color: blue;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+.snippet {
+  margin-bottom: 50px;
+  color: rgb(91, 91, 91);
+}
+
+.details_image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding-right: 20px;
+}
+
+.delete {
+  margin: 10px;
+}
+
+

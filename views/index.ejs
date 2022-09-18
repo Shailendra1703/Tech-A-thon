@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head.ejs') %>
-
+  <link rel="stylesheet" href="/Tech-A-thon/public/index.css" />
   <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div class="blogs content">
-      <h2 class="header">All Blogs</h2>
+    <h2 class="header">All Blogs</h2>
+    <div class="blogs_content">
       <% if(blogs.length>0){ %> <% blogs.forEach(blog => { %>
-      <img src="<%= blog.image %> " alt="image" />
+      <img class="blog_image" src="<%= blog.image %> " alt="image" />
       <a href="/blogs/<%=blog._id%>" class="single">
         <h2 class="title"><%= blog.title%></h2>
         <p class="snippet"><%= blog.snippet%></p></a
       >
-      <button class="like" data-doc="<%= blog._id %>"><%= blog.like%></button>
+      <!-- <button class="like" data-doc="<%= blog._id %>"><%= blog.like%></button> -->
       <!-- <button class="like">0</button> -->
       <% }); %> <% } else { %>
       <p class="snippets">There are No blogs to display</p>
