@@ -9,7 +9,7 @@ const Mongodb =
 
 mongoose
   .connect(Mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((res) => app.listen(3000))
+  .then((res) => app.listen(process.env.PORT || 3000))
   .catch((err) => console.log(err));
 
 app.set("view engine", "ejs");
