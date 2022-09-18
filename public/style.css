@@ -34,12 +34,22 @@ p {
 .aboutP {
   padding: 10px 100px;
 }
+
+.aboutP {
+  color: rgb(91, 91, 91);
+}
 .site-title img {
   height: 60px;
   width: 200px;
+  padding-bottom: 0%;
 }
 /* nav & footer styles */
 nav {
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  position: relative;
+  /* background-color:#ffeb92; */
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
@@ -281,7 +291,7 @@ b {
 }
 
 .title {
-  color: blue;
+  color: #cd5757;
 }
 
 .title:hover {
@@ -313,5 +323,3 @@ b {
 .delete {
   margin: 10px;
 }
-
-
